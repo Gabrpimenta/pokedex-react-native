@@ -1,6 +1,7 @@
+import { TouchableOpacityProps } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
-type PokemonType = {
+type PokemonType = TouchableOpacityProps & {
   type: string;
 };
 

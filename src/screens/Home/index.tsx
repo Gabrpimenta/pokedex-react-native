@@ -3,7 +3,7 @@ import * as S from './styles';
 import api from '../../services/api';
 import { FlatList } from 'react-native';
 import Card, { Pokemon, PokemonType } from '../../components/Card';
-import { FadeAnimation } from '../../components/FadeAnimation';
+import pokeballHeader from '../../assets/img/pokeball.png';
 
 type Request = {
   id: number;
@@ -35,11 +35,16 @@ export function Home() {
   return (
     <S.Container>
       <FlatList
-        renderItem={({ item: pokemon }) => (
-          <FadeAnimation>
-            <Card data={pokemon} />
-          </FadeAnimation>
-        )}
+        ListHeaderComponent={
+          <>
+            <S.Header source={pokeballHeader} />
+            <S.Title>Pokédex</S.Title>
+          </>
+        }
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+        }}
+        renderItem={({ item: pokemon }) => <Card data={pokemon} />}
         data={pokemons}
         keyExtractor={(pokemon) => pokemon.id.toString()}
       />
