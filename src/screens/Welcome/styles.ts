@@ -33,6 +33,7 @@ export const Footer = styled.View`
     border-top-left-radius: 20px;
     height: 30%;
     background-color: ${theme.colors.background};
+    padding: 20px;
   `}
 `;
 export const Title = styled.Text`
